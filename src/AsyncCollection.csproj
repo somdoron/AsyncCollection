@@ -2,6 +2,12 @@
 
   <PropertyGroup>
     <TargetFrameworks>net47;netstandard2.0;netcoreapp3.0</TargetFrameworks>
+    <PackageVersion>0.1</PackageVersion>
+    <Title>Asynchronous BlockingCollection</Title>
+    <Description>Asynchronous BlockingCollection. Allow awaiting when taking an item. Also implement C# 8 Async Streams (IAsyncEnumerable), require dotnet core 3.0.</Description>
+    <PackageProjectUrl>https://github.com/somdoron/AsyncCollection</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/somdoron/AsyncCollection/blob/master/LICENSE</PackageLicenseUrl>
+    <RepositoryUrl>https://github.com/somdoron/AsyncCollection</RepositoryUrl>
   </PropertyGroup>
   
   <PropertyGroup>
