@@ -140,7 +140,7 @@ namespace AsyncCollection
         {
             if (IsCompleted)
             {
-                return (false, default);
+                return (false, default(T));
             }
 
             if (semaphore.Wait(0))
@@ -164,7 +164,7 @@ namespace AsyncCollection
                 cancellationToken.ThrowIfCancellationRequested();
 
                 // Completed, exit loop
-                return (false, default);
+                return (false, default(T));
             }
         }
 
@@ -231,7 +231,7 @@ namespace AsyncCollection
             {
                 if (IsCompleted)
                 {
-                    result = default;
+                    result = default(T);
                     return false;
                 }
 
@@ -254,7 +254,7 @@ namespace AsyncCollection
                     }
                     else
                     {
-                        result = default;
+                        result = default(T);
                         return false;
                     }
                 }
@@ -262,7 +262,7 @@ namespace AsyncCollection
                 {
                     cancellationToken.ThrowIfCancellationRequested();
 
-                    result = default;
+                    result = default(T);
                     return false;
                 }
             }
