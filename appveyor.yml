@@ -1,0 +1,12 @@
+version: 0.1.0.{build}
+image: Visual Studio 2019 Preview
+configuration: Release
+build_script:
+ - dotnet restore
+ - dotnet build
+ - dotnet pack -c Release /p:PackageVersion=%APPVEYOR_BUILD_VERSION% /p:Version=%APPVEYOR_BUILD_VERSION%
+test_script:
+ - dotnet test
+artifacts:
+  - path: '**\*.nupkg'
+
