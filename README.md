@@ -12,15 +12,17 @@ Install using nuget: https://www.nuget.org/packages/AsyncCollection/.
 
 ## Example
 
-Iterating the collection synchronously:
+Iterating the collection asynchronously:
 
 ```csharp
 AsyncCollection<int> collection = new AsyncCollection<int>();
 
-var t = Task.Run(() =>
+var t = Task.Run(async () =>
 {
-    foreach (var item in collection.GetConsumingEnumerable())
+    while (!collection.IsCompleted)
     {
+        var item = await collection.TakeAsync();
+        
         // process
     }
 });
@@ -35,7 +37,7 @@ collection.CompleteAdding();
 t.Wait();
 ```
 
-Iterating the collection asynchronously, require dotnet core 3.0:
+Iterating the collection asynchronously using IAsyncEnumerable, require dotnet core 3.0:
 
 ```csharp
 AsyncCollection<int> collection = new AsyncCollection<int>();
